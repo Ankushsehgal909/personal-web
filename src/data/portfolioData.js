@@ -1,233 +1,242 @@
 export const portfolioData = {
   personal: {
-    name: "Alex Vance",
-    initials: "AV",
-    title: "Senior Full Stack Engineer & UI Architect",
-    tagline: "Crafting digital experiences with cinematic precision and high-performance engineering.",
+    name: "Ankush Sehgal",
+    initials: "AS",
+    title: "Software Development Engineer | Full Stack & React Native Specialist",
+    tagline: "Building scalable cross-platform mobile apps, IoT systems, enterprise web platforms, and open-source NPM packages.",
     roles: [
-      "Full Stack Engineer",
-      "UI/UX Architect",
-      "JavaScript Specialist",
-      "Open Source Creator"
+      "Full Stack Developer",
+      "React Native Engineer (iOS/Android)",
+      "React.js & Next.js Specialist",
+      "NPM Package Creator & IoT Engineer"
     ],
-    status: "Available for Work & Collaborations",
-    bio: "Passionate software engineer with 6+ years of experience building modern, responsive, and scalable web applications. Dedicated to clean architecture, intuitive user interfaces, and flawless user experiences.",
-    location: "San Francisco, CA (Open to Remote)",
-    email: "alex.vance.dev@example.com",
-    phone: "+1 (555) 234-5678",
+    status: "Available for High-Impact Opportunities",
+    bio: "Results-driven Full Stack Developer with 2 years of professional experience building scalable web and mobile applications using React Native (iOS/Android), React.js, Next.js, and Node.js. Proven track record delivering production-grade IoT-integrated apps, enterprise HRMS platforms, and BLE-connected healthcare systems.",
+    location: "India (Open to Remote & Onsite)",
+    email: "ankushsehgal999@gmail.com",
+    phone: "+91-9720121408",
     resumeUrl: "#",
     socials: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
-      twitter: "https://x.com",
-      facebook: "https://facebook.com",
-      discord: "https://discord.gg"
+      github: "https://github.com/Ankushsehgal909",
+      linkedin: "https://linkedin.com/in/ankush-sehgal-dev",
+      twitter: "",
+      facebook: "",
+      discord: ""
     }
   },
 
   stats: [
-    { label: "Years Experience", value: "6+" },
-    { label: "Projects Completed", value: "35+" },
-    { label: "Satisfied Clients", value: "20+" },
-    { label: "Code Commits", value: "4.8k" }
+    { label: "Years Experience", value: "2" },
+    { label: "Mobile & Web Apps", value: "4+" },
+    { label: "Performance Gain", value: "+30%" },
+    { label: "Platforms", value: "iOS / Android / Web" }
   ],
 
   aboutPillars: [
     {
-      title: "Clean Architecture",
-      description: "Writing scalable, maintainable, and self-documenting code built for longevity and performance."
+      title: "Cross-Platform Mobile Apps",
+      description: "Building production-grade iOS & Android applications with React Native, native bridges, push notifications (FCM/APNs), and BLE hardware communication."
     },
     {
-      title: "Cinematic UI/UX",
-      description: "Combining high-contrast aesthetics, deliberate typography, and micro-interactions for memorable user journeys."
+      title: "Real-Time Web Architecture",
+      description: "Architecting responsive web platforms and real-time dashboards using React.js, Next.js, Node.js, WebSockets, and MongoDB."
     },
     {
-      title: "Full-Stack Mastery",
-      description: "Seamlessly bridging pixel-perfect frontend interfaces with resilient backend API microservices."
+      title: "Open-Source NPM Libraries",
+      description: "Designing reusable, highly optimized developer tools, component UI libraries, and utility npm packages for modern JavaScript runtimes."
     }
   ],
 
   skills: {
-    categories: ["All", "Frontend", "Backend", "Tools & DevOps", "Design"],
+    categories: ["All", "Frontend & Mobile", "Backend & APIs", "IoT & BLE", "DevOps & State"],
     items: [
-      { name: "React", category: "Frontend", level: "Expert", icon: "Code2" },
-      { name: "TypeScript", category: "Frontend", level: "Expert", icon: "FileCode" },
-      { name: "Next.js", category: "Frontend", level: "Advanced", icon: "Globe" },
-      { name: "Tailwind CSS", category: "Frontend", level: "Expert", icon: "Palette" },
-      { name: "Vue.js", category: "Frontend", level: "Intermediate", icon: "Layout" },
-      { name: "Node.js", category: "Backend", level: "Expert", icon: "Server" },
-      { name: "Express.js", category: "Backend", level: "Expert", icon: "Cpu" },
-      { name: "Python / FastAPI", category: "Backend", level: "Advanced", icon: "Terminal" },
-      { name: "PostgreSQL", category: "Backend", level: "Advanced", icon: "Database" },
-      { name: "MongoDB", category: "Backend", level: "Advanced", icon: "Layers" },
-      { name: "GraphQL", category: "Backend", level: "Intermediate", icon: "GitMerge" },
-      { name: "Docker", category: "Tools & DevOps", level: "Advanced", icon: "Box" },
-      { name: "Git / GitHub Actions", category: "Tools & DevOps", level: "Expert", icon: "GitBranch" },
-      { name: "Vite / Webpack", category: "Tools & DevOps", level: "Expert", icon: "Zap" },
-      { name: "Figma", category: "Design", level: "Advanced", icon: "Figma" },
-      { name: "Framer Motion", category: "Design", level: "Expert", icon: "Sparkles" }
+      { name: "React Native (iOS/Android)", category: "Frontend & Mobile", level: "Expert", icon: "Code2" },
+      { name: "React.js", category: "Frontend & Mobile", level: "Expert", icon: "FileCode" },
+      { name: "Next.js", category: "Frontend & Mobile", level: "Expert", icon: "Globe" },
+      { name: "JavaScript (ES6+)", category: "Frontend & Mobile", level: "Expert", icon: "Terminal" },
+      { name: "Tailwind CSS", category: "Frontend & Mobile", level: "Expert", icon: "Palette" },
+      { name: "HTML5 / CSS3", category: "Frontend & Mobile", level: "Expert", icon: "Layout" },
+      { name: "Node.js", category: "Backend & APIs", level: "Expert", icon: "Server" },
+      { name: "Express.js", category: "Backend & APIs", level: "Expert", icon: "Cpu" },
+      { name: "RESTful APIs", category: "Backend & APIs", level: "Expert", icon: "Zap" },
+      { name: "WebSockets (Socket.io)", category: "Backend & APIs", level: "Expert", icon: "Layers" },
+      { name: "MongoDB", category: "Backend & APIs", level: "Advanced", icon: "Database" },
+      { name: "SQL", category: "Backend & APIs", level: "Advanced", icon: "Database" },
+      { name: "Firebase", category: "Backend & APIs", level: "Advanced", icon: "Sparkles" },
+      { name: "react-native-ble-plx (BLE)", category: "IoT & BLE", level: "Expert", icon: "Box" },
+      { name: "UART Protocol / Hardware", category: "IoT & BLE", level: "Advanced", icon: "Cpu" },
+      { name: "React Query", category: "DevOps & State", level: "Expert", icon: "GitMerge" },
+      { name: "Context API / Redux", category: "DevOps & State", level: "Advanced", icon: "Layers" },
+      { name: "React Hook Form", category: "DevOps & State", level: "Expert", icon: "FileCode" },
+      { name: "Git & GitHub", category: "DevOps & State", level: "Expert", icon: "GitBranch" },
+      { name: "Docker / Kubernetes (Basic)", category: "DevOps & State", level: "Intermediate", icon: "Box" }
     ]
   },
 
   experience: [
     {
-      role: "Lead Full Stack Engineer",
-      company: "Nexus Tech Solutions",
-      duration: "2023 - Present",
-      location: "San Francisco, CA",
-      description: "Architected enterprise web platforms serving 100k+ active users. Led frontend design system standardization and reduced initial bundle load times by 42%.",
+      role: "Software Development Engineer I",
+      company: "PSIBORG TECHNOLOGIES PVT. LTD.",
+      duration: "Nov 2024 – Present",
+      location: "India",
+      description: "Leading end-to-end development of cross-platform IoT mobile applications (Safome & Agro) shipped to iOS and Android, alongside responsive web dashboards.",
       highlights: [
-        "Migrated monolithic frontend to modular micro-frontend React setup.",
-        "Mentored junior engineers and instituted automated CI/CD code quality pipelines."
+        "Led end-to-end development of Safome and Agro — two cross-platform IoT mobile apps built in React Native shipped to iOS and Android.",
+        "Architected real-time WebSocket integrations with IoT hardware, enabling live device monitoring and analytics dashboards.",
+        "Built and maintained responsive web dashboards using React.js and Next.js, improving SEO scores and reducing time-to-interactive by 30%.",
+        "Implemented React Query for API state management — cutting redundant network calls via caching, auto-refetching, and background sync.",
+        "Applied code-splitting and modular architecture across the codebase, improving load speed and long-term maintainability."
       ],
-      tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "Docker"]
+      tech: ["React Native", "React.js", "Next.js", "WebSockets", "React Query", "iOS / Android"]
     },
     {
-      role: "Senior Frontend Developer",
-      company: "Aetheria Studio",
-      duration: "2021 - 2023",
+      role: "React Native Developer Intern",
+      company: "ROBUSTRESULTS PVT. LTD.",
+      duration: "Jun 2022 – Aug 2022",
       location: "Remote",
-      description: "Designed and implemented interactive web applications, real-time dashboards, and custom component libraries.",
+      description: "Developed a fully functional cross-platform mobile app integrating RESTful APIs from scratch during a 3-month internship.",
       highlights: [
-        "Engineered real-time canvas data visualization tools using WebGL and Canvas API.",
-        "Collaborated directly with product design team to build dark-themed cinematic UIs."
+        "Developed a fully functional cross-platform mobile app integrating RESTful APIs from scratch.",
+        "Added native modules and refactored codebase, achieving measurable performance gains on Android and iOS.",
+        "Actively participated in Agile ceremonies — user story writing, backlog grooming, and sprint demos."
       ],
-      tech: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "REST API"]
-    },
-    {
-      role: "JavaScript Engineer",
-      company: "Vanguard Systems",
-      duration: "2019 - 2021",
-      location: "Austin, TX",
-      description: "Developed core UI modules, customer management portals, and RESTful API endpoints.",
-      highlights: [
-        "Built dynamic data table filtering engine handling over 50k rows in under 100ms.",
-        "Refactored legacy jQuery application into modern ES6 React architecture."
-      ],
-      tech: ["JavaScript", "React", "Express", "MongoDB", "CSS Modules"]
+      tech: ["React Native", "JavaScript", "REST APIs", "Native Modules", "Agile"]
     }
   ],
 
   projects: [
     {
-      id: "project-1",
-      title: "Pulse-Studio Dashboard",
-      category: "Full Stack",
-      summary: "Real-time analytics and workflow automation dashboard for creative studios.",
-      description: "A high-performance SaaS analytics suite providing real-time data streaming, interactive charts, team collaboration boards, and automated report generation.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-      tags: ["React", "Node.js", "Tailwind CSS", "Socket.io", "Chart.js"],
-      liveUrl: "https://example.com/demo1",
-      githubUrl: "https://github.com/example/pulse-studio",
+      id: "safome",
+      title: "Safome — Real-Time Child Tracking App",
+      category: "Mobile Apps",
+      summary: "IoT parent-child safety mobile app providing sub-second live GPS tracking and emergency alerts.",
+      description: "Built an IoT-based parent-child safety app deployed on both iOS and Android. Provides real-time GPS tracking, sub-second live location updates over Socket.io, Google Navigation API route rendering, SOS emergency alarms running in foreground & background via native bridges, push notifications (FCM / APNs), and live hardware sensor syncing.",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop",
+      tags: ["React Native", "Socket.io", "Google Maps API", "Node.js", "FCM / APNs"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ankushsehgal909",
+      npmUrl: "",
       featured: true,
-      challenges: "Managing real-time WebSocket state synchronizations across multiple browser tabs without performance degradation.",
-      solutions: "Implemented centralized optimistic state management and delta patching algorithms."
+      challenges: "Delivering sub-second live location updates and ensuring SOS emergency audio alerts sound continuously even when backgrounded or locked.",
+      solutions: "Combined Socket.io WebSockets with native iOS/Android notification bridges and background tasks for zero-latency alert execution."
     },
     {
-      id: "project-2",
-      title: "Aura Cinematic Design System",
-      category: "Frontend",
-      summary: "A ultra-sleek, dark-mode component library inspired by film cinematography.",
-      description: "Open-source React component UI kit with anamorphic lighting effects, backdrop glassmorphism, and accessible keyboard navigation.",
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop",
-      tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://example.com/demo2",
-      githubUrl: "https://github.com/example/aura-ui",
+      id: "hospital-kiosk",
+      title: "Smart Appointment Booking — Hospital Kiosk App",
+      category: "Mobile Apps",
+      summary: "Hospital kiosk app integrating BLE Quenix hardware for temperature, fingerprint scanning, and receipts.",
+      description: "Built a hospital front-desk kiosk mobile app for iOS and Android with OTP-based login, doctor selection, and slot booking. Integrated Bluetooth Low Energy (BLE) with Quenix hardware using a custom UART protocol to perform live temperature reading, fingerprint scanning, and receipt printing over BLE. Features QR patient lookup, camera face recognition, and dual-context token/BLE state management.",
+      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000&auto=format&fit=crop",
+      tags: ["React Native", "BLE (react-native-ble-plx)", "React Query", "UART Protocol", "Axios"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ankushsehgal909",
+      npmUrl: "",
       featured: true,
-      challenges: "Ensuring 60fps glassmorphism blur transitions across low-end mobile devices.",
-      solutions: "Used CSS hardware acceleration and fallback solid opacity layers for low-power hardware."
+      challenges: "Reliably communicating with custom BLE medical devices over UART while retaining state during idle timeouts.",
+      solutions: "Engineered a dual-context architecture (authContext + BLEContext) with auto-reconnection and 5-minute inactivity timeouts."
     },
     {
-      id: "project-3",
-      title: "OmniForge Code Editor",
-      category: "AI/Tools",
-      summary: "Web-based collaborative code editor with integrated AI assistance.",
-      description: "In-browser IDE featuring syntax highlighting, live multi-user cursor editing, terminal execution sandbox, and context-aware code completion.",
+      id: "hrms-enterprise",
+      title: "HRMS — Enterprise HR Management System",
+      category: "Web Applications",
+      summary: "Comprehensive workforce lifecycle management platform with payroll, attendance, shift scheduling & RBAC.",
+      description: "Developed a full-stack HRMS platform featuring Employee Onboarding, automated Payroll calculation & tax payslip generation, Daily Check-in Attendance logs, Shift Management with rotational schedules, Performance Analysis KPI dashboards, Task Management, and Role-Based Access Control (RBAC) across Admin, HR Manager, and Employee tiers.",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop",
+      tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ankushsehgal909",
+      npmUrl: "",
+      featured: true,
+      challenges: "Enforcing complex granular permissions across multiple HR modules and calculating automated payroll cycles accurately.",
+      solutions: "Implemented an RBAC middleware layer in Express.js combined with centralized MongoDB aggregation pipelines for payroll calculations."
+    },
+    {
+      id: "smart-journey",
+      title: "Smart Journey — AI Travel Itinerary App",
+      category: "Mobile Apps",
+      summary: "AI-driven travel planning app generating personalized itineraries based on budget, dates, and group size.",
+      description: "Developed a cross-platform travel planning app built in React Native and Node.js that generates personalized AI itineraries. Provides smart recommendations for activities, accommodations, and daily schedules, significantly cutting down trip planning duration.",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1000&auto=format&fit=crop",
+      tags: ["React Native", "AI Integration", "Node.js", "REST API"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ankushsehgal909",
+      npmUrl: "",
+      featured: false,
+      challenges: "Synthesizing multi-variable user preferences into coherent daily schedule recommendations quickly.",
+      solutions: "Structured prompt formatting interfaces and cached destination suggestion trees."
+    },
+    {
+      id: "npm-package-placeholder",
+      title: "Custom NPM Developer Package",
+      category: "NPM Libraries",
+      summary: "Open-source developer utility / UI component package published on NPM.",
+      description: "Custom open-source JavaScript / React package designed to simplify state management, BLE communication, or UI component workflows across web & React Native applications.",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
-      tags: ["React", "Monaco Editor", "WebSockets", "Python", "Docker"],
-      liveUrl: "https://example.com/demo3",
-      githubUrl: "https://github.com/example/omniforge",
+      tags: ["NPM", "JavaScript", "TypeScript", "React Native", "Open Source"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ankushsehgal909",
+      npmUrl: "https://www.npmjs.com/",
       featured: true,
-      challenges: "Securely executing isolated dynamic user code in isolated sandboxes.",
-      solutions: "Created ephemeral containerized runner instances with strict CPU/Memory quotas."
-    },
+      challenges: "Optimizing package bundle size and providing zero-dependency tree-shakeable exports.",
+      solutions: "Used Rollup / ESBuild bundler pipeline with clean TypeScript declaration definitions."
+    }
+  ],
+
+  education: [
     {
-      id: "project-4",
-      title: "CyberMarket E-Commerce Platform",
-      category: "Full Stack",
-      summary: "Modern e-commerce platform with headless CMS integration & instant search.",
-      description: "Sleek storefront built for high conversion with instant fuzzy search, dynamic cart drawer, multi-currency checkout, and order tracking.",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop",
-      tags: ["Next.js", "GraphQL", "Stripe API", "PostgreSQL", "Tailwind CSS"],
-      liveUrl: "https://example.com/demo4",
-      githubUrl: "https://github.com/example/cybermarket",
-      featured: false,
-      challenges: "Providing sub-50ms instant search across 20,000 product SKUs.",
-      solutions: "Deployed edge-cached index structures and client-side web worker search."
-    },
-    {
-      id: "project-5",
-      title: "Neural Vision Studio",
-      category: "UI/UX",
-      summary: "Generative image canvas interface for digital artists and designers.",
-      description: "Interactive visual workspace combining prompt builder controls, canvas mask editing, version history tree, and batch asset export.",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
-      tags: ["React", "HTML5 Canvas", "REST API", "Tailwind CSS"],
-      liveUrl: "https://example.com/demo5",
-      githubUrl: "https://github.com/example/neural-vision",
-      featured: false,
-      challenges: "Managing undo/redo stack memory limits with high-resolution image layers.",
-      solutions: "Designed compressed binary snapshot buffers and immutable state trees."
+      degree: "B.Tech — Computer Science & Engineering",
+      institution: "Feroze Gandhi Institute of Engineering and Technology, Raebareli, UP",
+      duration: "2020 – 2024"
     }
   ],
 
   services: [
     {
-      id: "web-dev",
-      title: "Full Stack Web Development",
-      description: "Building responsive, modern, scalable web applications from initial frontend design to secure backend database architecture.",
+      id: "mobile-dev",
+      title: "Cross-Platform Mobile Apps",
+      description: "Building production-grade iOS & Android applications with React Native, native modules, push notifications, and offline caching.",
       icon: "Code",
       features: [
-        "Custom Single Page & Multi-page Apps",
-        "REST & GraphQL API Integration",
-        "Performance & SEO Optimization",
-        "Database Design & Cloud Deployment"
+        "iOS & Android Single Codebase Apps",
+        "Push Notifications (FCM / APNs)",
+        "Background Tasks & Native Bridges",
+        "React Query State & Offline Sync"
       ]
     },
     {
-      id: "ui-ux",
-      title: "Cinematic UI/UX Architecture",
-      description: "Designing memorable user interfaces with dark-mode focus, high visual contrast, deliberate typography, and smooth micro-interactions.",
-      icon: "Layout",
-      features: [
-        "Design System & Component Libraries",
-        "Responsive Mobile-First Interfaces",
-        "Interactive Prototypes & Animations",
-        "Accessibility (WCAG) Compliance"
-      ]
-    },
-    {
-      id: "api-backend",
-      title: "Backend Services & Microservices",
-      description: "Engineering reliable server backend logic, authentication handlers, microservice integrations, and real-time WebSocket communication.",
+      id: "iot-ble",
+      title: "IoT & BLE Hardware Integration",
+      description: "Connecting mobile and web applications to IoT hardware sensors, Bluetooth Low Energy (BLE) devices, and real-time WebSockets.",
       icon: "Server",
       features: [
-        "Secure User Authentication & JWT",
-        "Real-Time Data Streaming & WebSockets",
-        "Third-Party API & Payment Gateways",
-        "Database Indexing & Caching"
+        "BLE Communication (react-native-ble-plx)",
+        "UART Protocol & Hardware Syncing",
+        "Socket.io Real-Time Data Streaming",
+        "Live Device Dashboards & Analytics"
       ]
     },
     {
-      id: "consulting",
-      title: "Code Audit & Performance Tuning",
-      description: "Reviewing existing web codebases to optimize bundle size, decrease render latency, fix security vulnerabilities, and enhance maintainability.",
+      id: "fullstack-web",
+      title: "Full Stack Web Applications",
+      description: "Engineering scalable web platforms, dashboards, and enterprise HRMS systems using React.js, Next.js, Node.js, and MongoDB.",
+      icon: "Layout",
+      features: [
+        "React.js & Next.js SEO Dashboards",
+        "Node.js & Express RESTful APIs",
+        "Role-Based Access Control (RBAC)",
+        "Database Design & Optimization"
+      ]
+    },
+    {
+      id: "performance",
+      title: "NPM Libraries & Tools",
+      description: "Creating open-source npm packages, component libraries, and utility toolkits for the developer community.",
       icon: "Zap",
       features: [
-        "Core Web Vitals Audit",
-        "React Component Re-render Profiling",
-        "Refactoring Legacy Codebases",
-        "Technical Architecture Consulting"
+        "Tree-Shakeable NPM Package Bundling",
+        "TypeScript Type Definitions",
+        "Clean Developer APIs & Documentation",
+        "Open-Source Library Publishing"
       ]
     }
   ]

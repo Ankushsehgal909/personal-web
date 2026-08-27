@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, MapPin, CheckCircle2, FileText, Terminal } from 'lucide-react';
+import { User, MapPin, CheckCircle2, FileText, Terminal, GraduationCap } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export function About() {
-  const { personal, stats, aboutPillars } = portfolioData;
+  const { personal, stats, aboutPillars, education } = portfolioData;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,7 +36,7 @@ export function About() {
       >
         <span className="section-subtitle">01 // Biography & Vision</span>
         <h2 className="section-title">
-          About <span className="gold-gradient-text">My Crafts</span>
+          About <span className="gold-gradient-text">My Engineering</span>
         </h2>
         <div className="w-16 h-1 bg-gradient-to-r from-[#E5A93B] to-transparent mx-auto mt-4 rounded-full"></div>
       </motion.div>
@@ -50,7 +50,7 @@ export function About() {
         viewport={{ once: true, margin: "-80px" }}
       >
         
-        {/* Left Column: Story & Metrics */}
+        {/* Left Column: Story, Education & Metrics */}
         <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col gap-6">
           
           <div className="glass-panel p-8">
@@ -58,32 +58,52 @@ export function About() {
               <div className="p-2 rounded-lg bg-amber-500/10 text-amber-600 dark:text-[#E5A93B]">
                 <User className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Behind the Code</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Professional Summary</h3>
             </div>
             
             <p className="text-slate-600 dark:text-gray-300 leading-relaxed mb-6">
-              {personal.bio} I specialize in combining robust full-stack architecture with intuitive interfaces that leave a lasting impression.
+              {personal.bio}
             </p>
 
-            <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-gray-400 mb-6 bg-slate-100 dark:bg-white/[0.03] p-3 rounded-xl border border-slate-200 dark:border-white/5 w-fit">
-              <MapPin className="w-4 h-4 text-cyan-600 dark:text-[#00D2FF]" />
-              <span>Based in <strong className="text-slate-900 dark:text-white">{personal.location}</strong></span>
+            <div className="flex flex-wrap gap-3 mb-6">
+              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-gray-400 bg-slate-100 dark:bg-white/[0.03] p-3 rounded-xl border border-slate-200 dark:border-white/5">
+                <MapPin className="w-4 h-4 text-cyan-600 dark:text-[#00D2FF]" />
+                <span>Location: <strong className="text-slate-900 dark:text-white">{personal.location}</strong></span>
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <motion.a 
-                href={personal.resumeUrl} 
-                target="_blank" 
-                rel="noreferrer" 
+                href={`mailto:${personal.email}`}
                 className="btn-primary"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
               >
                 <FileText className="w-4 h-4" />
-                <span>Download Resume</span>
+                <span>Contact via Email</span>
               </motion.a>
             </div>
           </div>
+
+          {/* Education Card */}
+          {education && education.length > 0 && (
+            <div className="glass-panel p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-[#00D2FF]">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white">Education</h4>
+              </div>
+
+              {education.map((edu, idx) => (
+                <div key={idx} className="border-l-2 border-[#E5A93B] pl-4 py-1">
+                  <h5 className="font-semibold text-slate-900 dark:text-white text-base">{edu.degree}</h5>
+                  <p className="text-sm text-slate-600 dark:text-gray-400">{edu.institution}</p>
+                  <span className="text-xs font-mono text-amber-600 dark:text-[#E5A93B]">{edu.duration}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Stats Bar Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">

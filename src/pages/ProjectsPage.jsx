@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Eye, Search } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Eye, Search, Package } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
 import { portfolioData } from '../data/portfolioData';
 import { ProjectModal } from '../components/ProjectModal';
@@ -11,7 +11,7 @@ export function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Full Stack', 'Frontend', 'UI/UX', 'AI/Tools'];
+  const categories = ['All', 'Mobile Apps', 'Web Applications', 'NPM Libraries'];
 
   const filteredProjects = projects.filter((p) => {
     const matchesCat = activeCategory === 'All' || p.category === activeCategory;
@@ -38,10 +38,10 @@ export function ProjectsPage() {
       <div className="mb-12">
         <span className="section-subtitle">Archive // Showcase</span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-          All Project <span className="gold-gradient-text">Creations</span>
+          All Mobile Apps, Web Apps &amp; <span className="gold-gradient-text">NPM Libraries</span>
         </h1>
         <p className="text-slate-600 dark:text-gray-400 max-w-2xl text-base">
-          Browse through the complete archive of web applications, custom component libraries, and AI integrations.
+          Browse through the complete archive of cross-platform mobile apps, full-stack web platforms, and open-source NPM packages.
         </p>
       </div>
 
@@ -132,7 +132,18 @@ export function ProjectsPage() {
                 <span>Quick View</span>
               </button>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                {project.npmUrl && (
+                  <a
+                    href={project.npmUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                    title="View on NPM"
+                  >
+                    <Package className="w-4 h-4" />
+                  </a>
+                )}
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Eye } from 'lucide-react';
+import { ExternalLink, Eye, Package } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import { portfolioData } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
@@ -10,7 +10,7 @@ export function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Full Stack', 'Frontend', 'UI/UX', 'AI/Tools'];
+  const categories = ['All', 'Mobile Apps', 'Web Applications', 'NPM Libraries'];
 
   const filteredProjects = projects.filter((project) => {
     return activeCategory === 'All' || project.category === activeCategory;
@@ -29,15 +29,15 @@ export function Projects() {
       >
         <span className="section-subtitle">04 // Portfolio Showcase</span>
         <h2 className="section-title">
-          Featured <span className="gold-gradient-text">Projects</span>
+          Featured <span className="gold-gradient-text">Projects &amp; Packages</span>
         </h2>
         <p className="text-slate-600 dark:text-gray-400 mt-3 text-base">
-          Selected works showcasing web architecture, UI design system engineering, and full-stack solutions.
+          Selected Mobile Apps, Web Applications, and Open-Source NPM Libraries built by me.
         </p>
         <div className="w-16 h-1 bg-gradient-to-r from-[#E5A93B] to-transparent mx-auto mt-4 rounded-full"></div>
       </motion.div>
 
-      {/* Category Filter Tabs */}
+      {/* Category Filter Tabs (All, Mobile Apps, Web Applications, NPM Libraries) */}
       <div className="flex flex-wrap gap-2 justify-center mb-12">
         {categories.map((category) => (
           <button
@@ -129,7 +129,20 @@ export function Projects() {
                   <span>Quick View</span>
                 </button>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  {project.npmUrl && (
+                    <motion.a
+                      href={project.npmUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                      aria-label="NPM Package"
+                      title="View on NPM"
+                      whileHover={{ scale: 1.15 }}
+                    >
+                      <Package className="w-4 h-4" />
+                    </motion.a>
+                  )}
                   {project.githubUrl && (
                     <motion.a
                       href={project.githubUrl}

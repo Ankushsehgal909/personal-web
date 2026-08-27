@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { X, ExternalLink, CheckCircle, AlertTriangle } from 'lucide-react';
+import { X, ExternalLink, CheckCircle, AlertTriangle, Package } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 
 export function ProjectModal({ project, onClose }) {
@@ -68,6 +68,18 @@ export function ProjectModal({ project, onClose }) {
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
+            {project.npmUrl && (
+              <motion.a
+                href={project.npmUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary !py-2 !px-4 !text-sm !text-red-500 hover:!text-red-600"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Package className="w-4 h-4 text-red-500" />
+                <span>NPM</span>
+              </motion.a>
+            )}
             {project.githubUrl && (
               <motion.a
                 href={project.githubUrl}

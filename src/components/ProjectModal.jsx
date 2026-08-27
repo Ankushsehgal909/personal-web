@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { X, ExternalLink, CheckCircle, AlertTriangle } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 
@@ -14,19 +15,32 @@ export function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md animate-fade-in">
-      <div 
-        className="glass-panel w-full max-w-3xl max-h-[90vh] overflow-y-auto relative border border-[#E5A93B]/40 shadow-2xl p-6 sm:p-8"
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 dark:bg-black/80 backdrop-blur-md"
+      onClick={onClose}
+    >
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.92, y: 20 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        className="glass-panel w-full max-w-3xl max-h-[90vh] overflow-y-auto relative border border-[#E5A93B]/50 shadow-2xl p-6 sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         
         {/* Close Button */}
-        <button
+        <motion.button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer z-10"
+          whileHover={{ scale: 1.15, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
         >
           <X className="w-5 h-5" />
-        </button>
+        </motion.button>
 
         {/* Modal Header Image */}
         <div className="relative h-60 sm:h-72 rounded-2xl overflow-hidden mb-6 bg-slate-900 dark:bg-[#12141C]">
@@ -55,26 +69,28 @@ export function ProjectModal({ project, onClose }) {
 
           <div className="flex items-center gap-3 shrink-0">
             {project.githubUrl && (
-              <a
+              <motion.a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-secondary !py-2 !px-4 !text-sm"
+                whileHover={{ scale: 1.05 }}
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>Code</span>
-              </a>
+              </motion.a>
             )}
             {project.liveUrl && (
-              <a
+              <motion.a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary !py-2 !px-4 !text-sm"
+                whileHover={{ scale: 1.05 }}
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Live Demo</span>
-              </a>
+              </motion.a>
             )}
           </div>
         </div>
@@ -124,7 +140,7 @@ export function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

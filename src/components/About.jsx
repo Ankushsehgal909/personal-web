@@ -1,27 +1,57 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { User, MapPin, CheckCircle2, FileText, Terminal } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export function About() {
   const { personal, stats, aboutPillars } = portfolioData;
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 relative">
       
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <motion.div 
+        className="text-center max-w-3xl mx-auto mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-subtitle">01 // Biography & Vision</span>
         <h2 className="section-title">
           About <span className="gold-gradient-text">My Crafts</span>
         </h2>
         <div className="w-16 h-1 bg-gradient-to-r from-[#E5A93B] to-transparent mx-auto mt-4 rounded-full"></div>
-      </div>
+      </motion.div>
 
       {/* Main Grid: Story + Pillars */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+      >
         
         {/* Left Column: Story & Metrics */}
-        <div className="lg:col-span-7 flex flex-col gap-6">
+        <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col gap-6">
           
           <div className="glass-panel p-8">
             <div className="flex items-center gap-3 mb-4">
@@ -41,38 +71,53 @@ export function About() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href={personal.resumeUrl} target="_blank" rel="noreferrer" className="btn-primary">
+              <motion.a 
+                href={personal.resumeUrl} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn-primary"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+              >
                 <FileText className="w-4 h-4" />
                 <span>Download Resume</span>
-              </a>
+              </motion.a>
             </div>
           </div>
 
           {/* Stats Bar Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {stats.map((stat, idx) => (
-              <div key={idx} className="glass-panel p-4 text-center">
+              <motion.div 
+                key={idx} 
+                className="glass-panel p-4 text-center"
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              >
                 <div className="text-2xl sm:text-3xl font-extrabold gold-gradient-text mb-1">
                   {stat.value}
                 </div>
                 <div className="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-wider font-medium">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-        </div>
+        </motion.div>
 
         {/* Right Column: Core Engineering Pillars */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
+        <motion.div variants={itemVariants} className="lg:col-span-5 flex flex-col gap-4">
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
             <Terminal className="w-5 h-5 text-amber-600 dark:text-[#E5A93B]" />
             <span>Core Pillars</span>
           </h3>
 
           {aboutPillars.map((pillar, index) => (
-            <div key={index} className="glass-panel p-6 hover:border-[#E5A93B]/40 transition-all">
+            <motion.div 
+              key={index} 
+              className="glass-panel p-6 hover:border-[#E5A93B]/40 transition-all"
+              whileHover={{ x: 6, transition: { duration: 0.2 } }}
+            >
               <div className="flex items-start gap-4">
                 <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-amber-600 dark:text-[#E5A93B] shrink-0 mt-1">
                   <CheckCircle2 className="w-5 h-5" />
@@ -82,12 +127,12 @@ export function About() {
                   <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{pillar.description}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
 
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
 
     </section>
   );

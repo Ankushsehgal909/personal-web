@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
@@ -9,7 +10,13 @@ export function Experience() {
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 relative">
       
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <motion.div 
+        className="text-center max-w-3xl mx-auto mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-subtitle">03 // Career Milestones</span>
         <h2 className="section-title">
           Work <span className="gold-gradient-text">Experience</span>
@@ -18,21 +25,34 @@ export function Experience() {
           A track record of high-impact engineering roles and architectural leadership.
         </p>
         <div className="w-16 h-1 bg-gradient-to-r from-[#E5A93B] to-transparent mx-auto mt-4 rounded-full"></div>
-      </div>
+      </motion.div>
 
       {/* Vertical Illuminated Timeline */}
       <div className="relative border-l border-slate-300 dark:border-white/10 ml-4 sm:ml-8 md:ml-12 pl-6 sm:pl-10 space-y-12">
         
         {experience.map((item, index) => (
-          <div key={index} className="relative group">
+          <motion.div 
+            key={index} 
+            className="relative group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+          >
             
             {/* Timeline Node Icon */}
-            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[var(--bg-primary)] border-2 border-[#E5A93B] flex items-center justify-center text-[#E5A93B] group-hover:scale-125 group-hover:bg-[#E5A93B] group-hover:text-[#0A0B0E] transition-all shadow-lg shadow-[#E5A93B]/30">
+            <motion.div 
+              className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[var(--bg-primary)] border-2 border-[#E5A93B] flex items-center justify-center text-[#E5A93B] shadow-lg shadow-[#E5A93B]/30"
+              whileHover={{ scale: 1.3, backgroundColor: "#E5A93B", color: "#0A0B0E" }}
+            >
               <Briefcase className="w-3 h-3" />
-            </div>
+            </motion.div>
 
             {/* Timeline Experience Card */}
-            <div className="glass-panel p-6 sm:p-8">
+            <motion.div 
+              className="glass-panel p-6 sm:p-8"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            >
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-4 border-b border-slate-200 dark:border-white/10">
                 <div>
@@ -84,9 +104,9 @@ export function Experience() {
                 ))}
               </div>
 
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
         ))}
 
       </div>

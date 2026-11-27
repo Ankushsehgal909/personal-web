@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { User, MapPin, CheckCircle2, FileText, Terminal, GraduationCap } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { SpotlightCard } from './ui/SpotlightCard';
 
 export function About() {
   const { personal, stats, aboutPillars, education } = portfolioData;
@@ -53,7 +54,7 @@ export function About() {
         {/* Left Column: Story, Education & Metrics */}
         <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col gap-6">
           
-          <div className="glass-panel p-8">
+          <SpotlightCard className="p-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-amber-500/10 text-amber-600 dark:text-[#E5A93B]">
                 <User className="w-5 h-5" />
@@ -83,11 +84,11 @@ export function About() {
                 <span>Contact via Email</span>
               </motion.a>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Education Card */}
           {education && education.length > 0 && (
-            <div className="glass-panel p-6">
+            <SpotlightCard className="p-6" spotlightColor="rgba(0, 210, 255, 0.14)">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-[#00D2FF]">
                   <GraduationCap className="w-5 h-5" />
@@ -102,7 +103,7 @@ export function About() {
                   <span className="text-xs font-mono text-amber-600 dark:text-[#E5A93B]">{edu.duration}</span>
                 </div>
               ))}
-            </div>
+            </SpotlightCard>
           )}
 
           {/* Stats Bar Grid */}
@@ -110,15 +111,16 @@ export function About() {
             {stats.map((stat, idx) => (
               <motion.div 
                 key={idx} 
-                className="glass-panel p-4 text-center"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
-                <div className="text-2xl sm:text-3xl font-extrabold gold-gradient-text mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-wider font-medium">
-                  {stat.label}
-                </div>
+                <SpotlightCard className="p-4 text-center h-full">
+                  <div className="text-2xl sm:text-3xl font-extrabold gold-gradient-text mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-slate-500 dark:text-gray-400 uppercase tracking-wider font-medium">
+                    {stat.label}
+                  </div>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>
@@ -135,18 +137,22 @@ export function About() {
           {aboutPillars.map((pillar, index) => (
             <motion.div 
               key={index} 
-              className="glass-panel p-6 hover:border-[#E5A93B]/40 transition-all"
               whileHover={{ x: 6, transition: { duration: 0.2 } }}
             >
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-amber-600 dark:text-[#E5A93B] shrink-0 mt-1">
-                  <CheckCircle2 className="w-5 h-5" />
+              <SpotlightCard className="p-6 hover:border-[#E5A93B]/40">
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-amber-600 dark:text-[#E5A93B] shrink-0 mt-1">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{pillar.title}</h4>
+                      <span className="text-[11px] font-mono text-amber-600/70 dark:text-[#E5A93B]/60">0{index + 1}</span>
+                    </div>
+                    <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{pillar.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{pillar.title}</h4>
-                  <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{pillar.description}</p>
-                </div>
-              </div>
+              </SpotlightCard>
             </motion.div>
           ))}
 

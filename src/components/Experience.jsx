@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { SpotlightCard } from './ui/SpotlightCard';
 
 export function Experience() {
   const { experience } = portfolioData;
@@ -50,9 +51,9 @@ export function Experience() {
 
             {/* Timeline Experience Card */}
             <motion.div 
-              className="glass-panel p-6 sm:p-8"
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
             >
+              <SpotlightCard className="p-6 sm:p-8">
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-4 border-b border-slate-200 dark:border-white/10">
                 <div>
@@ -104,6 +105,7 @@ export function Experience() {
                 ))}
               </div>
 
+              </SpotlightCard>
             </motion.div>
 
           </motion.div>

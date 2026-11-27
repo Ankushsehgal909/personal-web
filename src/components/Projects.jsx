@@ -4,6 +4,8 @@ import { ExternalLink, Eye, Package } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import { portfolioData } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
+import { SpotlightCard } from './ui/SpotlightCard';
+import { BorderBeam } from './ui/BorderBeam';
 
 export function Projects() {
   const { projects } = portfolioData;
@@ -67,7 +69,7 @@ export function Projects() {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <motion.div 
               key={project.id}
               layout
@@ -76,8 +78,10 @@ export function Projects() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="glass-panel overflow-hidden flex flex-col justify-between group cursor-default shadow-lg hover:shadow-2xl hover:border-[#E5A93B]/50"
+              className="group cursor-default h-full"
             >
+              <SpotlightCard className="h-full shadow-lg hover:shadow-2xl hover:border-[#E5A93B]/50">
+                {index === 0 && <BorderBeam duration={14} borderWidth={1.5} />}
               <div>
                 {/* Project Image Frame */}
                 <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 dark:bg-[#12141C]">
@@ -170,6 +174,7 @@ export function Projects() {
                 </div>
               </div>
 
+              </SpotlightCard>
             </motion.div>
           ))}
         </AnimatePresence>

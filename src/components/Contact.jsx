@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Copy, Check } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { SpotlightCard } from './ui/SpotlightCard';
+import { BorderBeam } from './ui/BorderBeam';
 
 export function Contact() {
   const { personal } = portfolioData;
@@ -58,7 +60,7 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
           
-          <div className="glass-panel p-8">
+          <SpotlightCard className="p-8">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Contact Information</h3>
             <p className="text-slate-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
               I am currently open to full-time roles, contract work, and technical advisory projects.
@@ -119,7 +121,7 @@ export function Contact() {
               </span>
             </div>
 
-          </div>
+          </SpotlightCard>
 
         </motion.div>
 
@@ -131,7 +133,8 @@ export function Contact() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="glass-panel p-8 relative">
+          <SpotlightCard className="p-8 relative">
+            <BorderBeam duration={14} borderWidth={1.5} />
             
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send a Direct Message</h3>
 
@@ -230,7 +233,7 @@ export function Contact() {
               )}
             </AnimatePresence>
 
-          </div>
+          </SpotlightCard>
         </motion.div>
 
       </div>

@@ -69,12 +69,19 @@ export function BackgroundGlow() {
         }}
       />
 
-      {/* Subtle Architectural Grid Overlay */}
+      {/* Radial-Masked Architectural Dot & Grid Matrix */}
       <div 
-        className="absolute inset-0 opacity-[0.035] dark:opacity-[0.035] light:opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.14] dark:opacity-[0.12] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,black_30%,transparent_100%)]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(229, 169, 59, 0.45) 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
+        }}
+      />
+      <div 
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.03] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_40%,black_20%,transparent_100%)]"
         style={{
           backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
-          backgroundSize: '48px 48px'
+          backgroundSize: '64px 64px'
         }}
       />
     </div>

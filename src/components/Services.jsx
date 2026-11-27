@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Layout, Server, Zap, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { SpotlightCard } from './ui/SpotlightCard';
 
 const serviceIcons = {
   Code,
@@ -67,8 +68,9 @@ export function Services() {
               key={service.id}
               variants={cardVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="glass-panel p-8 flex flex-col justify-between group hover:border-[#E5A93B]/50 transition-colors duration-300"
+              className="group h-full"
             >
+              <SpotlightCard className="p-8 h-full hover:border-[#E5A93B]/50">
               <div>
                 {/* Header Icon */}
                 <motion.div 
@@ -96,6 +98,7 @@ export function Services() {
                   ))}
                 </div>
               </div>
+              </SpotlightCard>
             </motion.div>
           );
         })}

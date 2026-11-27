@@ -15,6 +15,9 @@ import {
   DiscordIcon 
 } from './SocialIcons';
 import { portfolioData } from '../data/portfolioData';
+import { AnimatedBadge } from './ui/AnimatedBadge';
+import { BorderBeam } from './ui/BorderBeam';
+import { TechMarquee } from './ui/TechMarquee';
 
 export function Hero() {
   const { personal, stats } = portfolioData;
@@ -107,14 +110,13 @@ export function Hero() {
         <div className="lg:col-span-7 flex flex-col items-start text-left">
           
           {/* Status Badge */}
-          <motion.div 
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/[0.04] border border-slate-300 dark:border-[#E5A93B]/30 mb-6 backdrop-blur-md"
-          >
-            <Sparkles className="w-4 h-4 text-amber-600 dark:text-[#E5A93B]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-gray-200">
-              Welcome to my portfolio
-            </span>
+          <motion.div variants={itemVariants} className="mb-6">
+            <AnimatedBadge>
+              <Sparkles className="w-4 h-4 text-amber-600 dark:text-[#E5A93B]" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-gray-200">
+                {personal.status}
+              </span>
+            </AnimatedBadge>
           </motion.div>
 
           {/* Main Title */}
@@ -202,19 +204,28 @@ export function Hero() {
           onMouseLeave={handleMouseLeave}
         >
           
-          {/* Main Visual Frame */}
+          {/* Main Visual Frame with 21st.dev BorderBeam */}
           <motion.div 
             style={{ rotateX, rotateY }}
-            className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl p-1 bg-gradient-to-tr from-[#E5A93B]/50 via-slate-200 dark:via-white/10 to-[#00D2FF]/40 shadow-2xl transition-shadow hover:shadow-[#E5A93B]/20"
+            className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl p-[1px] bg-gradient-to-tr from-[#E5A93B]/40 via-slate-200 dark:via-white/10 to-[#00D2FF]/35 shadow-2xl transition-shadow hover:shadow-[#E5A93B]/25"
           >
-            <div className="w-full h-full rounded-[22px] bg-slate-900 dark:bg-[#12141C] overflow-hidden relative flex items-center justify-center border border-slate-700 dark:border-white/10">
+            <BorderBeam duration={12} borderWidth={2} />
+            <div className="w-full h-full rounded-[23px] bg-slate-900 dark:bg-[#12141C] overflow-hidden relative flex items-center justify-center border border-slate-700 dark:border-white/10">
               
-              {/* Inner Glowing Grid Canvas Placeholder */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1E2A] to-[#0A0B0E] opacity-90" />
+              {/* Inner Glowing Dot Grid Canvas */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1E2A] to-[#0A0B0E] opacity-95" />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-25"
+                style={{
+                  backgroundImage: 'radial-gradient(rgba(229, 169, 59, 0.45) 1px, transparent 1px)',
+                  backgroundSize: '20px 20px',
+                }}
+              />
               
               <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center">
                 <motion.div 
-                  className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-[#E5A93B] to-[#996918] p-1 mb-4 shadow-xl"
+                  className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-[#E5A93B] to-[#996918] p-1 mb-4 shadow-xl shadow-[#E5A93B]/20"
                   animate={{ scale: [1, 1.04, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -223,7 +234,11 @@ export function Hero() {
                   </div>
                 </motion.div>
                 <h3 className="text-xl font-bold text-white mb-1">{personal.name}</h3>
-                <p className="text-xs text-[#E5A93B] font-mono">{personal.title}</p>
+                <p className="text-xs text-[#E5A93B] font-mono mb-3">{personal.title}</p>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono text-gray-300">
+                  <span className="status-dot !w-1.5 !h-1.5" />
+                  <span>iOS • Android • Web</span>
+                </div>
               </div>
 
               {/* Decorative Corner Aperture Markers */}
@@ -268,9 +283,33 @@ export function Hero() {
 
       </motion.div>
 
+      {/* Tech Stack Marquee Ribbon */}
+      <motion.div
+        className="mt-12 w-full"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7 }}
+      >
+        <TechMarquee
+          items={[
+            'React Native',
+            'React.js',
+            'Next.js',
+            'Node.js',
+            'Tailwind CSS',
+            'WebSockets',
+            'BLE / IoT',
+            'React Query',
+            'MongoDB',
+            'Firebase',
+            'TypeScript',
+          ]}
+        />
+      </motion.div>
+
       {/* Scroll Down Indicator */}
       <motion.div 
-        className="flex justify-center mt-12"
+        className="flex justify-center mt-8"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}

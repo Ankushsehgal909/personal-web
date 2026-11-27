@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { FigmaIcon } from './SocialIcons';
 import { portfolioData } from '../data/portfolioData';
+import { SpotlightCard } from './ui/SpotlightCard';
 
 // Map string icon names to Lucide Icon components safely
 const iconMap = {
@@ -132,31 +133,33 @@ export function Skills() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="glass-panel p-5 flex flex-col justify-between group cursor-default"
+                className="group cursor-default h-full"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-amber-600 dark:text-[#E5A93B] group-hover:bg-[#E5A93B]/20 group-hover:text-amber-600 dark:group-hover:text-white transition-all">
-                    <IconComponent className="w-6 h-6" />
+                <SpotlightCard className="p-5 h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-amber-600 dark:text-[#E5A93B] group-hover:bg-[#E5A93B]/20 group-hover:text-amber-600 dark:group-hover:text-white transition-all">
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                    <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${
+                      skill.level === 'Expert'
+                        ? 'border-amber-500/40 text-amber-600 dark:text-amber-300 bg-amber-400/10'
+                        : skill.level === 'Advanced'
+                        ? 'border-cyan-500/40 text-cyan-700 dark:text-cyan-300 bg-cyan-400/10'
+                        : 'border-slate-400/40 text-slate-600 dark:text-gray-300 bg-slate-400/10'
+                    }`}>
+                      {skill.level}
+                    </span>
                   </div>
-                  <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${
-                    skill.level === 'Expert'
-                      ? 'border-amber-500/40 text-amber-600 dark:text-amber-300 bg-amber-400/10'
-                      : skill.level === 'Advanced'
-                      ? 'border-cyan-500/40 text-cyan-700 dark:text-cyan-300 bg-cyan-400/10'
-                      : 'border-slate-400/40 text-slate-600 dark:text-gray-300 bg-slate-400/10'
-                  }`}>
-                    {skill.level}
-                  </span>
-                </div>
 
-                <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white text-base group-hover:text-amber-600 dark:group-hover:text-[#E5A93B] transition-colors mb-1">
-                    {skill.name}
-                  </h4>
-                  <span className="text-xs text-slate-500 dark:text-gray-400 font-mono">
-                    {skill.category}
-                  </span>
-                </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 dark:text-white text-base group-hover:text-amber-600 dark:group-hover:text-[#E5A93B] transition-colors mb-1">
+                      {skill.name}
+                    </h4>
+                    <span className="text-xs text-slate-500 dark:text-gray-400 font-mono">
+                      {skill.category}
+                    </span>
+                  </div>
+                </SpotlightCard>
               </motion.div>
             );
           })}

@@ -5,7 +5,11 @@ import {
   Sparkles, 
   Code, 
   Award,
-  ChevronDown
+  ChevronDown,
+  Terminal,
+  Cpu,
+  Zap,
+  MapPin
 } from 'lucide-react';
 import { 
   GithubIcon, 
@@ -25,14 +29,15 @@ export function Hero() {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // 3D Parallax Tilt Values
+  // 3D Parallax Tilt & Inner Spotlight Values
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [spotlightPos, setSpotlightPos] = useState({ x: 180, y: 180, opacity: 0 });
 
-  const rotateXMouse = useTransform(y, [-100, 100], [12, -12]);
-  const rotateYMouse = useTransform(x, [-100, 100], [-12, 12]);
+  const rotateXMouse = useTransform(y, [-150, 150], [10, -10]);
+  const rotateYMouse = useTransform(x, [-150, 150], [-10, 10]);
 
-  const springConfig = { stiffness: 250, damping: 20 };
+  const springConfig = { stiffness: 240, damping: 22 };
   const rotateX = useSpring(rotateXMouse, springConfig);
   const rotateY = useSpring(rotateYMouse, springConfig);
 
@@ -42,11 +47,17 @@ export function Hero() {
     const centerY = rect.top + rect.height / 2;
     x.set(event.clientX - centerX);
     y.set(event.clientY - centerY);
+    setSpotlightPos({
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+      opacity: 1,
+    });
   }
 
   function handleMouseLeave() {
     x.set(0);
     y.set(0);
+    setSpotlightPos((prev) => ({ ...prev, opacity: 0 }));
   }
 
   // Dynamic typing effect for roles
@@ -138,21 +149,41 @@ export function Hero() {
           {/* Tagline / Bio */}
           <motion.p 
             variants={itemVariants}
-            className="text-base sm:text-lg text-slate-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-8"
+            className="text-base sm:text-lg text-slate-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-6"
           >
             {personal.tagline} {personal.bio}
           </motion.p>
+
+          {/* Quick Proof Pills */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2.5 mb-8">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-gray-300">
+              <MapPin className="w-3.5 h-3.5 text-amber-600 dark:text-[#E5A93B]" />
+              <span>{personal.location}</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-gray-300">
+              <Zap className="w-3.5 h-3.5 text-cyan-600 dark:text-[#00D2FF]" />
+              <span>+30% Performance Gain</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-gray-300">
+              <Cpu className="w-3.5 h-3.5 text-emerald-500" />
+              <span>IoT &amp; BLE Specialist</span>
+            </span>
+          </motion.div>
 
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-10 w-full sm:w-auto">
             <motion.a 
               href="#projects" 
-              className="btn-primary"
-              whileHover={{ scale: 1.05 }}
+              className="btn-primary relative overflow-hidden group"
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
             >
-              <span>View Projects</span>
-              <ArrowRight className="w-4 h-4" />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/35 to-transparent"
+              />
+              <span className="relative z-10">View Projects</span>
+              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-0.5 transition-transform" />
             </motion.a>
 
             <motion.a 
@@ -204,16 +235,16 @@ export function Hero() {
           onMouseLeave={handleMouseLeave}
         >
           
-          {/* Main Visual Frame with 21st.dev BorderBeam */}
+          {/* Main Interactive 3D Command Card with 21st.dev BorderBeam & Spotlight */}
           <motion.div 
             style={{ rotateX, rotateY }}
-            className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl p-[1px] bg-gradient-to-tr from-[#E5A93B]/40 via-slate-200 dark:via-white/10 to-[#00D2FF]/35 shadow-2xl transition-shadow hover:shadow-[#E5A93B]/25"
+            className="relative w-full max-w-[390px] sm:w-[410px] rounded-3xl p-[1px] bg-gradient-to-tr from-[#E5A93B]/45 via-slate-200 dark:via-white/10 to-[#00D2FF]/40 shadow-2xl transition-shadow hover:shadow-[#E5A93B]/25"
           >
             <BorderBeam duration={12} borderWidth={2} />
-            <div className="w-full h-full rounded-[23px] bg-slate-900 dark:bg-[#12141C] overflow-hidden relative flex items-center justify-center border border-slate-700 dark:border-white/10">
+            <div className="w-full rounded-[23px] bg-slate-900 dark:bg-[#11131B] overflow-hidden relative flex flex-col justify-between border border-slate-700 dark:border-white/10 p-6">
               
-              {/* Inner Glowing Dot Grid Canvas */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1E2A] to-[#0A0B0E] opacity-95" />
+              {/* Inner Dot Grid + Cursor Spotlight */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1E2A] via-[#101219] to-[#0A0B0E] opacity-95" />
               <div
                 aria-hidden="true"
                 className="absolute inset-0 opacity-25"
@@ -222,30 +253,69 @@ export function Hero() {
                   backgroundSize: '20px 20px',
                 }}
               />
-              
-              <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center">
-                <motion.div 
-                  className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-[#E5A93B] to-[#996918] p-1 mb-4 shadow-xl shadow-[#E5A93B]/20"
-                  animate={{ scale: [1, 1.04, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <div className="w-full h-full rounded-full bg-[#0A0B0E] flex items-center justify-center text-4xl sm:text-5xl font-black gold-gradient-text">
-                    {personal.initials}
-                  </div>
-                </motion.div>
-                <h3 className="text-xl font-bold text-white mb-1">{personal.name}</h3>
-                <p className="text-xs text-[#E5A93B] font-mono mb-3">{personal.title}</p>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono text-gray-300">
-                  <span className="status-dot !w-1.5 !h-1.5" />
-                  <span>iOS • Android • Web</span>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300"
+                style={{
+                  opacity: spotlightPos.opacity,
+                  background: `radial-gradient(320px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(229, 169, 59, 0.18), transparent 65%)`,
+                }}
+              />
+
+              {/* Top Window Header */}
+              <div className="relative z-10 flex items-center justify-between pb-4 mb-5 border-b border-white/10">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                 </div>
+                <span className="text-[11px] font-mono text-gray-400">ankush.dev // profile</span>
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
+                  <span className="status-dot !w-1.5 !h-1.5" />
+                  <span>ONLINE</span>
+                </span>
               </div>
 
-              {/* Decorative Corner Aperture Markers */}
-              <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#E5A93B]/60"></div>
-              <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#E5A93B]/60"></div>
-              <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#E5A93B]/60"></div>
-              <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#E5A93B]/60"></div>
+              {/* Center Crest with Orbiting Ring */}
+              <div className="relative z-10 flex flex-col items-center justify-center text-center my-2">
+                <div className="relative flex items-center justify-center mb-4">
+                  <motion.div
+                    className="absolute w-32 h-32 rounded-full border border-dashed border-[#E5A93B]/40"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#E5A93B] shadow-[0_0_8px_#E5A93B]" />
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#00D2FF] shadow-[0_0_8px_#00D2FF]" />
+                  </motion.div>
+
+                  <motion.div 
+                    className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#E5A93B] to-[#996918] p-[2px] shadow-xl shadow-[#E5A93B]/25"
+                    animate={{ scale: [1, 1.04, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="w-full h-full rounded-full bg-[#0A0B0E] flex items-center justify-center text-3xl font-black gold-gradient-text">
+                      {personal.initials}
+                    </div>
+                  </motion.div>
+                </div>
+
+                <h3 className="text-xl font-bold text-white mb-0.5">{personal.name}</h3>
+                <p className="text-xs text-[#E5A93B] font-mono mb-4">{personal.title}</p>
+              </div>
+
+              {/* Live Terminal Readout */}
+              <div className="relative z-10 rounded-2xl bg-[#0A0B0E]/85 border border-white/10 p-3.5 font-mono text-[11px] text-left space-y-1.5">
+                <div className="flex items-center gap-2 text-gray-400 pb-1.5 border-b border-white/5">
+                  <Terminal className="w-3.5 h-3.5 text-[#E5A93B]" />
+                  <span>stack --verify</span>
+                </div>
+                <div className="text-emerald-400">✓ React Native (iOS / Android) + BLE</div>
+                <div className="text-cyan-400">✓ React 19 • Next.js • Socket.IO</div>
+                <div className="text-amber-300 flex items-center gap-1.5">
+                  <span>✓ 10+ Production Apps Shipped</span>
+                  <span className="w-1.5 h-3 bg-[#E5A93B] animate-pulse inline-block" />
+                </div>
+              </div>
             </div>
           </motion.div>
 

@@ -6,6 +6,7 @@ import { portfolioData } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 import { SpotlightCard } from './ui/SpotlightCard';
 import { BorderBeam } from './ui/BorderBeam';
+import { ProjectVisual } from './ui/ProjectVisual';
 
 export function Projects() {
   const { projects } = portfolioData;
@@ -83,22 +84,8 @@ export function Projects() {
               <SpotlightCard className="h-full shadow-lg hover:shadow-2xl hover:border-[#E5A93B]/50">
                 {index === 0 && <BorderBeam duration={14} borderWidth={1.5} />}
               <div>
-                {/* Project Image Frame */}
-                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 dark:bg-[#12141C]">
-                  <motion.img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100" 
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 dark:from-[#0A0B0E] via-transparent to-transparent" />
-                  
-                  {/* Category Badge */}
-                  <span className="absolute top-3 right-3 text-[11px] font-mono font-semibold px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[#0A0B0E]/80 backdrop-blur-md border border-slate-700 dark:border-white/15 text-[#E5A93B]">
-                    {project.category}
-                  </span>
-                </div>
+                {/* 21st.dev-inspired Animated Project Preview */}
+                <ProjectVisual project={project} />
 
                 {/* Card Body */}
                 <div className="p-6">

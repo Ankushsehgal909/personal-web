@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, Sparkles } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
 import { portfolioData } from '../data/portfolioData';
+import { ProjectVisual } from '../components/ui/ProjectVisual';
 
 export function ProjectDetailPage() {
   const { id } = useParams();
@@ -38,13 +39,9 @@ export function ProjectDetailPage() {
       </div>
 
       {/* Main Header Banner */}
-      <div className="relative h-72 sm:h-96 rounded-3xl overflow-hidden mb-10 bg-slate-900 dark:bg-[#12141C] border border-slate-200 dark:border-white/10 shadow-2xl">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 dark:from-[#0A0B0E] via-slate-950/40 dark:via-[#0A0B0E]/40 to-transparent" />
+      <div className="relative h-72 sm:h-80 rounded-3xl overflow-hidden mb-10 bg-slate-900 dark:bg-[#12141C] border border-slate-200 dark:border-white/10 shadow-2xl group">
+        <ProjectVisual project={project} heightClass="h-full" showCategory={false} />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 dark:from-[#0A0B0E] via-slate-950/35 dark:via-[#0A0B0E]/35 to-transparent pointer-events-none" />
         
         <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>

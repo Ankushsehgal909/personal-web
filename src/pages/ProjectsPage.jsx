@@ -4,6 +4,8 @@ import { ArrowLeft, ExternalLink, Eye, Search, Package } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
 import { portfolioData } from '../data/portfolioData';
 import { ProjectModal } from '../components/ProjectModal';
+import { SpotlightCard } from '../components/ui/SpotlightCard';
+import { ProjectVisual } from '../components/ui/ProjectVisual';
 
 export function ProjectsPage() {
   const { projects } = portfolioData;
@@ -82,22 +84,12 @@ export function ProjectsPage() {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
-          <div
+          <SpotlightCard
             key={project.id}
-            className="glass-panel overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300"
+            className="group hover:-translate-y-2 transition-all duration-300"
           >
             <div>
-              <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900 dark:bg-[#12141C]">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 dark:from-[#0A0B0E] via-transparent to-transparent" />
-                <span className="absolute top-3 right-3 text-[11px] font-mono font-semibold px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[#0A0B0E]/80 border border-slate-700 dark:border-white/15 text-[#E5A93B]">
-                  {project.category}
-                </span>
-              </div>
+              <ProjectVisual project={project} />
 
               <div className="p-6">
                 <Link 
@@ -167,7 +159,7 @@ export function ProjectsPage() {
               </div>
             </div>
 
-          </div>
+          </SpotlightCard>
         ))}
       </div>
 

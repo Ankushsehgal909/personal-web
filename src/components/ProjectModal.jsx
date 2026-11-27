@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, ExternalLink, CheckCircle, AlertTriangle, Package } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
+import { ProjectVisual } from './ui/ProjectVisual';
 
 export function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -42,18 +43,9 @@ export function ProjectModal({ project, onClose }) {
           <X className="w-5 h-5" />
         </motion.button>
 
-        {/* Modal Header Image */}
-        <div className="relative h-60 sm:h-72 rounded-2xl overflow-hidden mb-6 bg-slate-900 dark:bg-[#12141C]">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 dark:from-[#0A0B0E] via-transparent to-transparent" />
-          
-          <span className="absolute bottom-4 left-4 text-xs font-mono px-3 py-1 rounded-full bg-slate-900/80 dark:bg-[#0A0B0E]/80 border border-slate-700 dark:border-white/20 text-[#E5A93B]">
-            {project.category}
-          </span>
+        {/* Modal Header Animated Preview */}
+        <div className="rounded-2xl overflow-hidden mb-6 border border-white/10">
+          <ProjectVisual project={project} heightClass="h-52 sm:h-64" />
         </div>
 
         {/* Modal Title & Actions */}
